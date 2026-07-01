@@ -55,7 +55,7 @@ Best hyperparameters found by GridSearchCV:
 
 Linear regression was terrible on this dataset (R² = 0.04 on test), which makes sense because property prices don't follow a straight line — they depend on many factors in non-linear ways.
 
-Random Forest and XGBoost both show some overfitting (train scores way higher than test scores), but their test performance is decent. After hyperparameter tuning, XGBoost's overfitting dropped noticeably (R² gap went from 0.19 to 0.14). The model is off by about 92-94k EUR on average, which could still be improved but is a solid first iteration.
+Random Forest and XGBoost both show some overfitting (train scores way higher than test scores), but their test performance is decent. After hyperparameter tuning, XGBoost's overfitting dropped noticeably (R² gap went from 0.19 to 0.14). The model is off by about 92-94k EUR on average, which could still be improved with more data or even more tunning, or filtering some more feature of the data.
 
 ## Installation
 
@@ -117,9 +117,3 @@ immo-eliza-ml/
 | Wednesday | Main coding day, built preprocessing, training, and evaluation |
 | Thursday | Cleaning up code, optimizing, adding comments |
 | Friday | Working on STAR method presentation, final review |
-
-## Current Limitations
-
-- Linear regression performs very poorly on this data, which is expected.
-- Random Forest and XGBoost still show some overfitting even after tuning.
-- The model is off by about 92-94k EUR on average, which could be improved with better feature selection or more data.
