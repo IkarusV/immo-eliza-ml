@@ -34,6 +34,8 @@ Three models:
 2. **Random Forest** — 100 decision trees that each see a random part of the data, then vote on the price.
 3. **XGBoost** — gradient boosting, builds trees one after another where each new tree tries to fix the mistakes of the previous one.
 
+All three were also evaluated with **5-fold cross-validation** to get more reliable scores, and Random Forest + XGBoost were tuned with **GridSearchCV** to find better settings.
+
 ## Results
 
 | Model | Train R² | Test R² | Test MAE | Overfitting? |
@@ -41,12 +43,19 @@ Three models:
 | Linear Regression | 0.52 | 0.04 | 138,267 EUR | Yes (R² gap: 0.47) |
 | Random Forest | 0.95 | 0.78 | 93,957 EUR | Some (R² gap: 0.17) |
 | XGBoost | 0.96 | 0.76 | 93,745 EUR | Some (R² gap: 0.19) |
+| **Random Forest (tuned)** | 0.95 | 0.79 | 93,615 EUR | Some (R² gap: 0.16) |
+| **XGBoost (tuned)** | 0.92 | 0.78 | 92,162 EUR | Less (R² gap: 0.14) |
 
-**Best model: Random Forest** with R² = 0.78 on test data.
+**Best model: Random Forest (tuned)** with R² = 0.79 on test data.
+
+Best hyperparameters found by GridSearchCV:
+
+- Random Forest: 200 trees, no max depth limit
+- XGBoost: learning_rate=0.05, max_depth=6, 300 boosting rounds
 
 Linear regression was terrible on this dataset (R² = 0.04 on test), which makes sense because property prices don't follow a straight line — they depend on many factors in non-linear ways.
 
-Random Forest and XGBoost both show some overfitting (train scores way higher than test scores), but their test performance is decent. The model is off by about 94k EUR on average, which is not great but expected for a first iteration without hyperparameter tuning.
+Random Forest and XGBoost both show some overfitting (train scores way higher than test scores), but their test performance is decent. After hyperparameter tuning, XGBoost's overfitting dropped noticeably (R² gap went from 0.19 to 0.14). The model is off by about 92-94k EUR on average, which could still be improved but is a solid first iteration.
 
 ## Installation
 
@@ -112,6 +121,5 @@ immo-eliza-ml/
 ## Current Limitations
 
 - Linear regression performs very poorly on this data, which is expected.
-- Random Forest and XGBoost show some overfitting that could be reduced with hyperparameter tuning.
-- The model is off by about 94k EUR on average, which could be improved by feature selection or trying different preprocessing strategies.
-- No cross-validation or hyperparameter tuning applied yet (optional for this sprint).
+- Random Forest and XGBoost still show some overfitting even after tuning.
+- The model is off by about 92-94k EUR on average, which could be improved with better feature selection or more data.
