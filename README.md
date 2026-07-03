@@ -73,7 +73,7 @@ To get reliable scores, all models were evaluated using **5-fold cross-validatio
 
 ### My Observations & Insights
 
-*   **Why Linear Regression did so poorly**: The test $R^2$ was only 0.04. This is because real estate prices are highly non-linear. For example, location premium (latitude and longitude) isn't linear—moving slightly north doesn't mean prices go up in a straight line; it depends on specific expensive cities and neighborhoods in the dataset.
+*   **Why Linear Regression did so poorly**: The test $R^2$ was only 0.04. This is because real estate prices are highly non-linear. For example, location premium (latitude and longitude) isn't linear moving slightly north doesn't mean prices go up in a straight line; it depends on specific expensive cities and neighborhoods in the dataset.
 *   **Overfitting**: Tree-based models tend to memorize the training data. Limiting hyper-parameters during tuning (like reducing tree depth in XGBoost to 6 and tuning learning rates) helped lower the overfitting gap from 0.20 to 0.14, making the model generalize much better.
 *   **Typical Error**: The Mean Absolute Error (MAE) is around 92k–93k EUR. This is quite high, but this is partly because our dataset includes very expensive houses (over 1 million EUR) where the model's prediction errors are much larger.
 *   **Data Limitations**: Many properties in our scraped dataset have `unknown` for `property_state` or missing construction years. Having more complete records on the property's condition would likely improve the prediction accuracy.
