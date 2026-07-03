@@ -341,8 +341,8 @@ def main():
         }
 
         print(f"\n{name}:")
-        print(f"  TRAIN -> R2: {train_metrics['R2']:.4f} | MAE: {train_metrics['MAE']:.0f}")
-        print(f"  TEST  -> R2: {test_metrics['R2']:.4f} | MAE: {test_metrics['MAE']:.0f}")
+        print(f"  TRAIN -> R2: {train_metrics['R2']:.4f} | MAE: {train_metrics['MAE']:.0f} | RMSE: {train_metrics['RMSE']:.0f}")
+        print(f"  TEST  -> R2: {test_metrics['R2']:.4f} | MAE: {test_metrics['MAE']:.0f} | RMSE: {test_metrics['RMSE']:.0f}")
 
     # pick the best overall model
     best_name = max(results, key=lambda k: results[k]["test"]["R2"])
