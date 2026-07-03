@@ -11,7 +11,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 
 
-# --- config ---
+# config
 
 DATA_PATH = r"C:\Aithing\MyownCoddedthing\AGPT CODEX\Becode\PreparationDatanalysis\immo-eliza-turtles-analysis\data\cleaned\clean_dataframe.json"
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "model")
@@ -42,7 +42,7 @@ CATEGORICAL_FEATURES = [
 ]
 
 
-# Step 1 - load data
+# Step 1 load data
 
 def load_data(path):
     """Read the json file into a dataframe.
@@ -55,7 +55,7 @@ def load_data(path):
     return df
 
 
-# Step 2 - preprocess data
+# Step 2 preprocess data
 
 def preprocess_data(df):
     """Clean up the dataframe so models can use it.
@@ -128,7 +128,7 @@ def preprocess_new_data(df, preprocessors):
     return X
 
 
-# Step 3 - train model
+# Step 3 train model
 
 def train_model(model, X_train, y_train):
     """Fit the model on training data.
@@ -142,7 +142,7 @@ def train_model(model, X_train, y_train):
     return model
 
 
-# Step 4 - evaluate model
+# Step 4 evaluate model
 
 def evaluate_model(model, X, y):
     """Predict on X, compare to real y, return the scores.
@@ -161,7 +161,7 @@ def evaluate_model(model, X, y):
     return {"MAE": mae, "RMSE": rmse, "R2": r2}
 
 
-# Step 5 - cross-validation (test on 5 different splits instead of just 1)
+# Step 5 cross-validation (test on 5 different splits instead of just 1)
 
 def cross_validate_models(models, X_train, y_train):
     """Run 5-fold cross-validation on each model and print the scores.
@@ -183,7 +183,7 @@ def cross_validate_models(models, X_train, y_train):
         print(f"  mean R2: {scores.mean():.4f} (+/- {scores.std():.4f})")
 
 
-# Step 6 - hyperparameter tuning (testing different settings on RF and XGBoost)
+# Step 6 hyperparameter tuning (testing different settings on RF and XGBoost)
 
 def tune_hyperparameters(X_train, y_train):
     """Try different parameter combos with GridSearchCV and return the best models.
@@ -251,7 +251,7 @@ def tune_hyperparameters(X_train, y_train):
     return tuned_models
 
 
-# Step 7 - save model
+# Step 7 save model
 
 def save_model(obj, name):
     """Save a python object to a .joblib file.
@@ -266,7 +266,7 @@ def save_model(obj, name):
     print(f"saved to {path}")
 
 
-# --- main ---
+# main
 
 def main():
     df = load_data(DATA_PATH)
