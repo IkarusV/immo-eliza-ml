@@ -13,7 +13,7 @@ import joblib
 
 # config
 
-DATA_PATH = r"C:\Aithing\MyownCoddedthing\AGPT CODEX\Becode\PreparationDatanalysis\immo-eliza-turtles-analysis\data\cleaned\clean_dataframe.json"
+DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "clean_dataframe.json")
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "model")
 
 TARGET = "price"

@@ -153,6 +153,7 @@ This loads `best_model.joblib` and `preprocessors.joblib` to estimate prices for
 
 ```text
 immo-eliza-ml/
+├── data/                  # Cleaned dataset (clean_dataframe.json)
 ├── model/                 # Saved models and preprocessors (.joblib files, ignored by git)
 ├── predict.py             # Inference script to predict prices for new properties
 ├── train.py               # Main training script (preprocessing, training, tuning, and evaluation)
