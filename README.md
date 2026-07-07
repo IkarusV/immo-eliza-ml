@@ -7,8 +7,7 @@
 [![Status](https://img.shields.io/badge/Status-Completed-success.svg)](#)
 
 ## Description
-
-This is my first machine learning project. The goal is to predict real estate prices in Belgium using different regression models. It builds on a dataset of **15,746 property listings** scraped from Immovlan during a previous group project. 
+The goal is to predict real estate prices in Belgium using different regression models. It builds on a dataset of **15,746 property listings** scraped from Immovlan during a previous group project. 
 
 By providing details about a property (like the size, location, and number of rooms), the model estimates its market price in EUR.
 
